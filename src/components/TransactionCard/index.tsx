@@ -1,29 +1,45 @@
 import React from "react";
 
-import { 
-    Container,
-    Title,
-    Amount,
-    Footer,
-    Category,
-    Icon,
-    CategoryName,
-    Date
+import {
+  Container,
+  Title,
+  Amount,
+  Footer,
+  Category,
+  Icon,
+  CategoryName,
+  Date,
 } from "../TransactionCard/styles";
 
+interface Category {
+  name: string;
+  icon: string;
+}
+interface Props {
+  data: {
+    type: "positive" | "negative";
+    title: string;
+    amount: string;
+    category: Category;
+    date: string;
+  };
+}
 
-export function TransactionCard(){
-    return (
-        <Container>
-            <Title>Desenvolvimento de site</Title>
-            <Amount>R$ 12.500,00</Amount>
-            <Footer>
-                <Category>
-                    <Icon name="dollar-sign"/>
-                    <CategoryName>Vendas</CategoryName>
-                </Category>
-                <Date>02/08/2022</Date>
-            </Footer>
-        </Container>
-        )
-    }
+export function TransactionCard({ data }: Props) {
+  return (
+    <Container>
+      <Title>{data.title}</Title>
+      <Amount type={data.type}>
+        {data.type === "negative" && "-"}
+        {data.amount}
+      </Amount>
+      <Footer>
+        <Category>
+          <Icon name={data.category.icon} />
+          <CategoryName>{data.category.name}</CategoryName>
+        </Category>
+        <Date>{data.date}</Date>
+      </Footer>
+    </Container>
+  );
+}
