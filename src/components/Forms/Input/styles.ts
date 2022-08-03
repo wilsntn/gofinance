@@ -3,7 +3,7 @@ import styled from "styled-components/native";
 
 export const Container = styled.TextInput`
   width: 100%;
-  font-size: ${RFValue(14)};
+  font-size: ${RFValue(14)}px;
   font-family: ${({ theme }) => theme.fonts.medium};
   color: ${({ theme }) => theme.colors.text_dark};
   padding: 18px 20px;
