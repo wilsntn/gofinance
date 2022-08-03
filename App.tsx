@@ -1,5 +1,5 @@
 import React from "react";
-import Dashboard from "./src/screens/Dashboard";
+import Register from "./src/screens/Register";
 import { ThemeProvider } from "styled-components";
 import defaultTheme from "./global/styles/defaultTheme";
 
@@ -24,7 +24,7 @@ export default function App() {
   }
   return (
     <ThemeProvider theme={defaultTheme}>
-      <Dashboard />
+      <Register />
     </ThemeProvider>
   );
 }
